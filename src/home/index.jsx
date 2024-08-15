@@ -66,15 +66,13 @@ export default function Home() {
             className="form-control rounded"
             placeholder="Search by Name, Colour, Type..."
             value={searchTerm} onChange={handleSearchChange}
-          // aria-label="Search" 
-          // aria-describedby="search-addon" 
           />
           <button type="button" className="btn btn-outline-primary" data-mdb-ripple-init>search</button>
         </div>
 
         <div className="row mt-4">
-          <div className="col-md-3 text-start" style={{ position: 'sticky', top: '5px', height: '90vh' }}>
-            <div className="card shadow-sm p-3 mb-4">
+          <div className="col-md-3 text-start">
+            <div className="card shadow-sm p-3 mb-4 sticky-md-top" style={{ top: '5px', height: 'auto' }}>
               <div className="card-body">
                 <h4 className="card-title">Colors</h4>
                 {["Red", "Blue", "Green"].map((color) => (
@@ -109,7 +107,7 @@ export default function Home() {
                 ))}
 
                 <h4 className="card-title mt-4">Price</h4>
-                {["0-₹250", "₹251-₹450", "₹450+"].map((price) => (
+                {["0-250", "251-450", "450+"].map((price) => (
                   <div key={price} className="form-check">
                     <input
                       type="checkbox"
@@ -142,12 +140,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-
-          <div className="col-md-9">
-            <div className="row">
+          <div className="col-md-9 mx-auto">
+            <div className="row justify-content-center">
               {filteredItems.map((item) => (
-                <div className="col-md-4 mb-4" key={item.id}>
+                <div className="col-md-4 mb-4 d-flex justify-content-center" key={item.id}>
                   <Card product={item} />
                 </div>
               ))}

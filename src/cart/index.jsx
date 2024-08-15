@@ -110,7 +110,7 @@ const CartPage = () => {
                   <div>
                     <h5 className="mb-1">{item.name}</h5>
                     <p className="mb-0">
-                      ₹{item.price} x {item.cartQuantity}
+                      ${item.price} x {item.cartQuantity}
                     </p>
                   </div>
                 </div>
@@ -139,7 +139,7 @@ const CartPage = () => {
             ))}
           </ul>
           <h4 className="text-center">Total Quantity: {totalQuantity}</h4>
-          <h4 className="text-center">Total Amount: ₹{totalAmount.toFixed(2)}</h4>
+          <h4 className="text-center">Total Amount: ${totalAmount.toFixed(2)}</h4>
           <div className="text-center">
             <button className="btn btn-danger mt-3" onClick={handleClearCart}>
               Clear Cart

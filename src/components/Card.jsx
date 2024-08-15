@@ -21,7 +21,7 @@ const Card = ({ product }) => {
       />
       <div className="card-body">
         <h5 className="card-title text-center">{product.name}</h5>
-        <p className="card-text text-muted text-center">₹{product.price}</p>
+        <p className="card-text text-muted text-center">${product.price}</p>
         <div className="d-grid gap-2">
           <button className="btn btn-primary" onClick={handleAddToCart}>
             Add to Cart
