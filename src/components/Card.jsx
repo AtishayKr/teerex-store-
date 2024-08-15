@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useDispatch } from 'react-redux';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../features/cartSlice/cartSlice';
 
 const Card = ({ product }) => {
@@ -10,14 +11,22 @@ const Card = ({ product }) => {
   };
 
   return (
-    <div className="card" style={{ width: '18rem', margin: '10px' }}>
-      <img src={product.imageURL} className="card-img-top" alt={product.name} />
+
+    <div className="card shadow-lg rounded" style={{ width: '15rem' }}>
+      <img
+        src={product.imageURL}
+        className="card-img-top"
+        alt={product.name}
+        style={{ height: '150px', objectFit: 'contain' }}
+      />
       <div className="card-body">
-        <h5 className="card-title">{product.name}</h5>
-        <p className="card-text">${product.price}</p>
-        <button className="btn btn-primary" onClick={handleAddToCart}>
-          Add to Cart
-        </button>
+        <h5 className="card-title text-center">{product.name}</h5>
+        <p className="card-text text-muted text-center">₹{product.price}</p>
+        <div className="d-grid gap-2">
+          <button className="btn btn-primary" onClick={handleAddToCart}>
+            Add to Cart
+          </button>
+        </div>
       </div>
     </div>
   );

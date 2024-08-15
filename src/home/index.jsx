@@ -58,85 +58,104 @@ export default function Home() {
   if (status === "failed") return <p>Error: {error}</p>;
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-12 mb-4">
+    <>
+      <div className="container mt-2" >
+        <div className="input-group">
           <input
             type="text"
-            className="form-control"
+            className="form-control rounded"
             placeholder="Search by Name, Colour, Type..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-            style={{ textAlign: "center" }}
+            value={searchTerm} onChange={handleSearchChange}
+          // aria-label="Search" 
+          // aria-describedby="search-addon" 
           />
+          <button type="button" className="btn btn-outline-primary" data-mdb-ripple-init>search</button>
         </div>
-        <div className="col-md-3">
-          <div className="filters">
-            <h4>Colors</h4>
-            {["Red", "Blue", "Green"].map((color) => (
-              <div key={color}>
-                <input
-                  type="checkbox"
-                  id={color}
-                  value={color}
-                  onChange={() => handleFilterChange("colors", color)}
-                />
-                <label htmlFor={color}>{color}</label>
-              </div>
-            ))}
 
-            <h4>Gender</h4>
-            {["Men", "Women"].map((gender) => (
-              <div key={gender}>
-                <input
-                  type="checkbox"
-                  id={gender}
-                  value={gender}
-                  onChange={() => handleFilterChange("gender", gender)}
-                />
-                <label htmlFor={gender}>{gender}</label>
-              </div>
-            ))}
+        <div className="row mt-4">
+          <div className="col-md-3 text-start" style={{ position: 'sticky', top: '5px', height: '90vh' }}>
+            <div className="card shadow-sm p-3 mb-4">
+              <div className="card-body">
+                <h4 className="card-title">Colors</h4>
+                {["Red", "Blue", "Green"].map((color) => (
+                  <div key={color} className="form-check">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id={color}
+                      value={color}
+                      onChange={() => handleFilterChange("colors", color)}
+                    />
+                    <label className="form-check-label" htmlFor={color}>
+                      {color}
+                    </label>
+                  </div>
+                ))}
 
-            <h4>Price</h4>
-            {["0-RS250", "RS251-450", "RS450"].map((price) => (
-              <div key={price}>
-                <input
-                  type="checkbox"
-                  id={price}
-                  value={price}
-                  onChange={() => handleFilterChange("price", price)}
-                />
-                <label htmlFor={price}>{price}</label>
-              </div>
-            ))}
+                <h4 className="card-title mt-4">Gender</h4>
+                {["Men", "Women"].map((gender) => (
+                  <div key={gender} className="form-check">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id={gender}
+                      value={gender}
+                      onChange={() => handleFilterChange("gender", gender)}
+                    />
+                    <label className="form-check-label" htmlFor={gender}>
+                      {gender}
+                    </label>
+                  </div>
+                ))}
 
-            <h4>Type</h4>
-            {["Polo", "Hoodie", "Basic"].map((type) => (
-              <div key={type}>
-                <input
-                  type="checkbox"
-                  id={type}
-                  value={type}
-                  onChange={() => handleFilterChange("type", type)}
-                />
-                <label htmlFor={type}>{type}</label>
+                <h4 className="card-title mt-4">Price</h4>
+                {["0-₹250", "₹251-₹450", "₹450+"].map((price) => (
+                  <div key={price} className="form-check">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id={price}
+                      value={price}
+                      onChange={() => handleFilterChange("price", price)}
+                    />
+                    <label className="form-check-label" htmlFor={price}>
+                      {price}
+                    </label>
+                  </div>
+                ))}
+
+                <h4 className="card-title mt-4">Type</h4>
+                {["Polo", "Hoodie", "Basic"].map((type) => (
+                  <div key={type} className="form-check">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id={type}
+                      value={type}
+                      onChange={() => handleFilterChange("type", type)}
+                    />
+                    <label className="form-check-label" htmlFor={type}>
+                      {type}
+                    </label>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
-        </div>
 
-        <div className="col-md-9">
-          <div className="row">
-            {filteredItems.map((item) => (
-              <div className="col-md-3 mb-4" key={item.id}>
-                <Card product={item} />
-              </div>
-            ))}
+
+          <div className="col-md-9">
+            <div className="row">
+              {filteredItems.map((item) => (
+                <div className="col-md-4 mb-4" key={item.id}>
+                  <Card product={item} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
