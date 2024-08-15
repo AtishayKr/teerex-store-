@@ -22,7 +22,7 @@ const cartSlice = createSlice({
         const totalRequestedQuantity = item.cartQuantity + 1;
 
         if (totalRequestedQuantity > action.payload.quantity) {
-          alert("The requested quantity is not available.");
+          alert("This item is currently out of stock.");
         } else {
           state.items[existingIndex] = {
             ...item,
@@ -33,7 +33,7 @@ const cartSlice = createSlice({
         }
       } else {
         if (1 > action.payload.quantity) {
-          alert("The requested quantity is not available.");
+          alert("This item is currently out of stock.");
         } else {
           let tempProductItem = { ...action.payload, cartQuantity: 1 };
           state.items.push(tempProductItem);
@@ -52,7 +52,7 @@ const cartSlice = createSlice({
         const item = state.items[existingIndex];
         const totalRequestedQuantity = item.cartQuantity + 1;
         if (totalRequestedQuantity > action.payload.quantity) {
-          alert("The requested quantity is not available.");
+          alert("This item is currently out of stock.");
         } else {
           state.items[existingIndex] = {
             ...item,
