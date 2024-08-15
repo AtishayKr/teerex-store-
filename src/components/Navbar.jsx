@@ -17,7 +17,7 @@ const Navbar = () => {
           <img src={logo} alt="My Icon" width="30" height="30"/>
         </Link>
         <Link className="navbar-brand mx-1" to="/">
-          ShanTees
+          TeerexStore
         </Link>
         <button
           className="navbar-toggler"
