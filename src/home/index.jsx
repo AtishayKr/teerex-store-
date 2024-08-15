@@ -141,13 +141,19 @@ export default function Home() {
             </div>
           </div>
           <div className="col-md-9 mx-auto">
-            <div className="row justify-content-center">
-              {filteredItems.map((item) => (
-                <div className="col-md-4 mb-4 d-flex justify-content-center" key={item.id}>
-                  <Card product={item} />
-                </div>
-              ))}
-            </div>
+            {filteredItems.length === 0 ? (
+              <div className="d-flex justify-content-center align-items-center" style={{ height: '70vh' }}>
+                <h5>No items match your filters. Please adjust your criteria.</h5>
+              </div>
+            ) : (
+              <div className="row justify-content-center">
+                {filteredItems.map((item) => (
+                  <div className="col-md-4 mb-4 d-flex justify-content-center" key={item.id}>
+                    <Card product={item} />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
