@@ -30,16 +30,15 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarText">
+        <div className="collapse navbar-collapse " id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0"></ul>
           <span className="navbar-text">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+            <ul className="navbar-nav  mb-2 mb-lg-0 ml-auto">
+              <li className="nav-item ml-auto">
+                <Link className="nav-link active " aria-current="page" to="/">
                   Home
                 </Link>
               </li>
-              <div>
                 <li className="nav-item">
                   <Link
                     className="nav-link position-relative cart-icon"
@@ -51,7 +50,6 @@ const Navbar = () => {
                     </span>
                   </Link>
                 </li>
-              </div>
             </ul>
           </span>
         </div>

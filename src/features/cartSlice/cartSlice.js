@@ -15,7 +15,7 @@ const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
 
-      console.log("action.payload====>>>>", action.payload);
+      // console.log("action.payload====>>>>", action.payload);
 
       if (existingIndex >= 0) {
         const item = state.items[existingIndex];
@@ -51,10 +51,6 @@ const cartSlice = createSlice({
       if (existingIndex >= 0) {
         const item = state.items[existingIndex];
         const totalRequestedQuantity = item.cartQuantity + 1;
-
-        console.log("totalRequestedQuantity ", totalRequestedQuantity);
-        console.log("payloadQuantity ", action.payload.quantity);
-        console.log("payloadQuantity ", action.payload);
         if (totalRequestedQuantity > action.payload.quantity) {
           alert("The requested quantity is not available.");
         } else {
